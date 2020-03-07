@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i id="minusforMobile" class="fas fa-minus"></i></button>
-                           <input type="text" id="inputForPlus" class="form-control text-center" value="0">
-                           <button class="btn btn-default"><i id="plusForMobile" class="fas fa-plus"></i></button>
+                           <button id="mnsButton" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="middleInput" type="text" class="form-control text-center" value="1">
+                           <button id="plsButton" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$<span id="totalMoney">1259</span></h5>
+                        <h5>$<span id="alliphonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="caseMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseInput" type="text" class="form-control text-center" value="1">
+                           <button id="casePlus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="allcasePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$<span id="allmnsPrice">1,278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="allplsPrice">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -78,53 +78,47 @@
       </div>
    </section>
    <script>
-      // plussss
-       const gettingPlus = document.getElementById("plusForMobile");
-       gettingPlus.addEventListener("click", function(){
-         const gettingOutPut = document.getElementById("inputForPlus").value;
-          const output = parseFloat(gettingOutPut);  
-          const outputValue = output + 1;
-          document.getElementById("inputForPlus").value = outputValue;
-          outputValue1 =  document.getElementById("inputForPlus").value;
-          
-          const allMoney = document.getElementById("totalMoney").innerText;
-          const allMoney1 = parseFloat(allMoney);
-          const allMoney2 = outputValue1 * 1259;
-          console.log(allMoney2);
-          document.getElementById("totalMoney").innerText = allMoney2;
-})
-       
-     
-       
-       //minusssss
-       const gettingMinus = document.getElementById("minusforMobile");
-       gettingMinus.addEventListener("click", function(){
-         const outputMinus = document.getElementById("inputForPlus").value; 
-          const outputMinus1 = parseFloat(outputMinus);
-          const outputMinus2 = outputMinus1 - 1;
-          if (outputMinus2 == 0) {
-                 gettingMinus.disabled= false;
+    
+      <!---Iphone plus sign -->>
+      const clickPlus = document.getElementById("plsButton");
+            clickPlus.addEventListener("click", function(){
+                 const incrementPlus = document.getElementById("middleInput").value;
+                 const incrementPlusParse = parseFloat(incrementPlus);
+                 if(incrementPlusParse >= 0){
+                  outputForMiddle = incrementPlusParse + 1;
+                  }
+                 const iphoneAll = document.getElementById("alliphonePrice").innerText; 
+                 const iphoneAllParse = parseFloat(iphoneAll);
+                 const iphoneMulti = 1219 * outputForMiddle;
+                 
+                 
+                 
+                 document.getElementById("middleInput").value = outputForMiddle;   
+                 document.getElementById("alliphonePrice").innerText = iphoneMulti;
+                 document.getElementById("allmnsPrice").innerText = iphoneMulti; 
+                 document.getElementById("allplsPrice").innerText = iphoneMulti; 
+            })
 
-               }
-               else{
-                  document.getElementById("inputForPlus").value = outputMinus2;
-               }
-          
-             const minus = document.getElementById("totalMoney").innerText;
-             const minus1 = parseFloat(minus); 
-             console.log(minus1);
-             const minus2 = minus1 - 1259;
-             
-             if(minus2 == 0){
-                gettingMinus.disabled = false;
-             }
-             else{
-               document.getElementById("totalMoney").innerText = minus2;
-             }
-       })
+            <!---Iphone minus sign -->>
 
-      
-  
+            const clickMinus = document.getElementById("mnsButton");
+            clickMinus.addEventListener("click", function(){
+                 const incrementMns = document.getElementById("middleInput").value;
+                 const incrementMnsParse = parseFloat(incrementMns);
+                 if(incrementMnsParse > 0){
+                  outputForMiddleMns = incrementMnsParse - 1;
+                  }
+                 const iphoneAllMns = document.getElementById("alliphonePrice").innerText; 
+                 const iphoneAllMnsParse = parseFloat(iphoneAllMns);
+                 const iphoneMnsMulti = 1219 * outputForMiddleMns;
+                 
+                 
+                 
+                 document.getElementById("middleInput").value = outputForMiddleMns;   
+                 document.getElementById("alliphonePrice").innerText = iphoneMnsMulti;
+                 document.getElementById("allmnsPrice").innerText = iphoneMnsMulti; 
+                 document.getElementById("allplsPrice").innerText = iphoneMnsMulti; 
+            })
    </script>
 </body>
 
