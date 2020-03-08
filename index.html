@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$<span id="allmnsPrice">1,278</span></h5>
+                        <h5>$<span id="allmnsPrice">00</span></h5>
                         <h5>$0</h5>
-                        <h5>$<span id="allplsPrice">1,278</span></h5>
+                        <h5>$<span id="allplsPrice">00</span></h5>
                      </div>
                   </div>
                </div>
@@ -139,7 +139,26 @@
                  document.getElementById("allmnsPrice").innerText = iphoneAllCaseMulti; 
                  document.getElementById("allplsPrice").innerText = iphoneAllCaseMulti; 
             })
-   
+            
+            <!---IphoneCase minus sign -->>
+                   const clickMinusForCase = document.getElementById("caseMinus"); 
+                   clickMinusForCase.addEventListener("click", function(){
+                     const incrementCaseMns = document.getElementById("caseInput").value;
+                     const incrementCaseMnsParse = parseFloat(incrementCaseMns);
+                     if(incrementCaseMnsParse > 0){
+                        outputForMnsMiddleCase = incrementCaseMnsParse - 1;
+                       }
+                     const allMnsCase = document.getElementById("allcasePrice").innerText;
+                     const allMnsCaseParse = parseFloat(allMnsCase);  
+                     const allMnsCaseParseMulti = 59 * outputForMnsMiddleCase;
+
+                     document.getElementById("caseInput").value = outputForMnsMiddleCase;
+                     document.getElementById("allcasePrice").innerText = allMnsCaseParseMulti;
+                     document.getElementById("allmnsPrice").innerText = allMnsCaseParseMulti; 
+                     document.getElementById("allplsPrice").innerText = allMnsCaseParseMulti;
+                   })   
+
+
    </script>
 </body>
 
