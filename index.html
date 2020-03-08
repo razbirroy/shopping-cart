@@ -119,6 +119,27 @@
                  document.getElementById("allmnsPrice").innerText = iphoneMnsMulti; 
                  document.getElementById("allplsPrice").innerText = iphoneMnsMulti; 
             })
+
+            <!---IphoneCase plus sign -->>
+            
+            const clickPlusForCase = document.getElementById("casePlus");
+            clickPlusForCase.addEventListener("click", function(){
+               const incrementCasePlus = document.getElementById("caseInput").value;
+               const incrementCasePlusParse = parseFloat(incrementCasePlus);
+               if(incrementCasePlusParse >= 0){
+                  outputForMiddleCase = incrementCasePlusParse + 1;
+               }
+                 
+                 const iphoneAllCase = document.getElementById("allcasePrice").innerText;
+                 const iphoneAllCaseParse = parseFloat(iphoneAllCase);
+                 const iphoneAllCaseMulti = 59 * outputForMiddleCase;
+
+                 document.getElementById("caseInput").value =  outputForMiddleCase;
+                 document.getElementById("allcasePrice").innerText = iphoneAllCaseMulti;
+                 document.getElementById("allmnsPrice").innerText = iphoneAllCaseMulti; 
+                 document.getElementById("allplsPrice").innerText = iphoneAllCaseMulti; 
+            })
+   
    </script>
 </body>
 
