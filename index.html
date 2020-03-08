@@ -158,12 +158,11 @@
                      document.getElementById("allplsPrice").innerText = allMnsCaseParseMulti;
                    })   
       
-       <!--Iphone Cross-->>
+   <!--Iphone Cross-->>
        
        const vanishBtn = document.getElementById("vanish");
        vanishBtn.addEventListener("click", function(){
-            const vanisharea= document.getElementById("vanish-area");
-            vanisharea.style.display = "none";
+            noneId("vanish-area");
            
     })
 
@@ -171,9 +170,13 @@
     
     const casecrossBtn = document.getElementById("vanishCase");
     casecrossBtn.addEventListener("click", function(){
-      const vanishareaForCase= document.getElementById("vanishcase-area");
-            vanishareaForCase.style.display = "none";
+       noneId("vanishcase-area");
     })
+
+    function noneId(id){
+       const vanishareaForCase= document.getElementById(id);
+            vanishareaForCase.style.display = "none";
+    }
 
    </script>
 </body>
